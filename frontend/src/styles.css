@@ -4,6 +4,7 @@
   --primary-light: #ff80ab;
   --gradient: linear-gradient(124deg, #ff4081 0%, #fdb702 100%);
   --bg: #f6f6f6;
+  --surface: #ffffff;
   --white: #ffffff;
   --text: #222222;
   --text-muted: #888888;
@@ -17,8 +18,21 @@
   background: var(--bg);
 }
 
+:root[data-theme='dark'] {
+  --bg: #121212;
+  --surface: #1f1f1f;
+  --text: #f3f3f3;
+  --text-muted: #b7b7b7;
+  --border: #3b3b3b;
+  --table-header: #2a2a2a;
+}
+
 * { box-sizing: border-box; }
-body { margin: 0; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
 a { color: var(--primary); text-decoration: none; }
 
 /* ===== Layout ===== */
@@ -30,7 +44,7 @@ a { color: var(--primary); text-decoration: none; }
 
 /* ===== Top Navbar ===== */
 .navbar {
-  background: var(--white);
+  background: var(--surface);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -51,6 +65,12 @@ a { color: var(--primary); text-decoration: none; }
 .navbar nav {
   display: flex;
   gap: 24px;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .navbar nav a {
@@ -157,7 +177,7 @@ a { color: var(--primary); text-decoration: none; }
 
 /* ===== White card panel ===== */
 .card-panel {
-  background: var(--white);
+  background: var(--surface);
   border-radius: var(--radius-card);
   padding: 24px;
   margin-bottom: 24px;
@@ -195,7 +215,7 @@ a { color: var(--primary); text-decoration: none; }
 table {
   width: 100%;
   border-collapse: collapse;
-  background: var(--white);
+  background: var(--surface);
   border-radius: 10px;
   overflow: hidden;
 }
@@ -241,9 +261,13 @@ td a {
 }
 
 .btn-outline {
-  background: var(--white);
+  background: var(--surface);
   color: var(--text);
   border: 1px solid var(--border);
+}
+
+.theme-toggle {
+  padding: 8px 16px;
 }
 
 .btn-danger-icon {
@@ -305,7 +329,7 @@ td a {
   border: 1px solid var(--border);
   border-radius: var(--radius-input);
   padding: 10px 12px;
-  background: var(--white);
+  background: var(--surface);
   color: var(--text);
   outline: none;
   transition: border-color 0.15s;
